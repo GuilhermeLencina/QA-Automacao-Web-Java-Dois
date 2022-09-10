@@ -27,9 +27,9 @@ Checklist básico para mostrar a progressão do projeto.
 
 [✔️] Criar **Readme**
 
-[] Criar **Projeto** Maven
+[✔️] Criar **Projeto** Maven
 
-[] Criar arquivo **.gitignore**
+[✔️] Criar arquivo **.gitignore**
 
 [] Criar e Configurar Classe **TestBase**
 
