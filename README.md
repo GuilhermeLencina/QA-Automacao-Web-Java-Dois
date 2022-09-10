@@ -35,9 +35,9 @@ Checklist básico para mostrar a progressão do projeto.
 
 [✔️] Criar e Configurar Classe de **Waits**
 
-[] Criar classes parar geração de **Reports**
+[✔️] Criar classes parar geração de **Reports**
 
-[] Criar Classe para gerar dados com **JavaFakers**
+[✔️] Criar Classe para gerar dados com **JavaFakers**
 
 [] Criar Classe e Mapear Elementos nas **PageObjects**
 
@@ -52,7 +52,7 @@ Checklist básico para mostrar a progressão do projeto.
 ## Padrão utilizado 📦
 Como já escrito no titulo, neste tópico terá a padrão utilizado para estruturar o projeto junto de uma breve explicação do que tem em cada pacote.
 
-**src/main/java/Framework/ -** Pacote responsável pela **TestBase** do projeto e por classes no qual controlam o **Browser**, geram os **Reports** e classes **Utils**.
+**src/main/java/Framework/ -** Pacote responsável pela **TestBase** do projeto e por classes no qual controlam o **Browser**, geram o **Report** e classes **Utils**.
 
 **src/test/java/PageObjects/ -** Classes com os elementos da página em questão mapeados por **selectors**.
 
