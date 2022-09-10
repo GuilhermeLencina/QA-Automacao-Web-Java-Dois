@@ -31,9 +31,9 @@ Checklist básico para mostrar a progressão do projeto.
 
 [✔️] Criar arquivo **.gitignore**
 
-[] Criar e Configurar Classe **TestBase**
+[✔️] Criar e Configurar Classe **TestBase**
 
-[] Criar e Configurar Classe de **Waits**
+[✔️] Criar e Configurar Classe de **Waits**
 
 [] Criar classes parar geração de **Reports**
 
