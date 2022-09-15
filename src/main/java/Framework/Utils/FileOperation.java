@@ -1,16 +1,13 @@
 package Framework.Utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 public class FileOperation {
     private static final String DIR_PATH_PROPERTIES = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" +
             File.separator + "resources" + File.separator + "Properties" + File.separator;
 
-    public Properties getProperties(String name) throws IOException {
+    public static Properties getProperties(String name) throws IOException {
 
         InputStream inputStream = null;
         Properties properties = new Properties();
@@ -27,6 +24,17 @@ public class FileOperation {
             inputStream.close();
         }
         return properties;
+    }
+
+    public void setPropriedade(String fileName, String propKey, String propValue) throws IOException {
+        Properties prop = getProperties(fileName);
+        try {
+            OutputStream outputStream = new FileOutputStream(DIR_PATH_PROPERTIES + fileName + ".properties");
+            prop.setProperty(propKey, propValue);
+            prop.store(outputStream, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

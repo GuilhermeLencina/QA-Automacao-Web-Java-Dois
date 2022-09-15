@@ -8,13 +8,13 @@ import java.util.Date;
 public class DateTime {
 
     public static String getReportDateTimeFormat(){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
         Date now = new Date();
         return dateFormat.format(now);
     }
 
     public static String getScreenshotDateTimeFormat(){
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMM-yyy_hh'h'mm'm's's'");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MMM-yyy hh'h'mm'm's's'");
         LocalDateTime localDateTime = LocalDateTime.now();
         return dateTimeFormatter.format(localDateTime);
     }

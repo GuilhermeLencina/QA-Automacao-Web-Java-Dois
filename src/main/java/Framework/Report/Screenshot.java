@@ -33,7 +33,7 @@ public class Screenshot {
         return null;
     }
 
-    public static Media captureBase64(WebDriver driver){
+    public static Media screenshot(WebDriver driver){
         try{
             PageSnapshot screenshot = Shutterbug.shootPage(driver);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();

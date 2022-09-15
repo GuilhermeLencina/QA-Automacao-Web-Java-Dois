@@ -7,27 +7,27 @@ import java.util.Locale;
 
 public class FakersGeneration {
     private Faker faker;
-    private String firstName;
-    private String lastName;
-    private String zipCode;
+    private String name;
+    private String description;
+    private String conta;
 
     public FakersGeneration(WebDriver driver){
         faker = new Faker(new Locale("pt-BR"));
     }
 
-    public String getFirstName(){
-        firstName = faker.name().firstName();
-        return firstName;
+    public String getName(){
+        name = faker.name().firstName();
+        return name;
     }
 
-    public String getLastName(){
-        lastName = faker.name().lastName();
-        return  lastName;
+    public String getDescription(){
+        description = faker.address().city();
+        return description;
     }
 
-    public String getZipCode(){
-        zipCode = faker.address().zipCode();
-        return zipCode;
+    public String getConta(){
+        conta = faker.university().name();
+        return conta;
     }
 
 }

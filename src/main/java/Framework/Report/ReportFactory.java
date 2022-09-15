@@ -13,14 +13,14 @@ public class ReportFactory {
     public static WebDriver driver;
 
     public static final String PATH_REPORT = System.getProperty("user.dir") + File.separator + "Report" + File.separator
-            + "Report_" + DateTime.getReportDateTimeFormat();
+            + "Report " + DateTime.getReportDateTimeFormat();
 
     public static ExtentSparkReporter extentSparkReporter;
     public static ExtentReports extentReports;
 
     public static void configReportExtent(){
         CreateReportFolder.createReportFolder(PATH_REPORT);
-        extentSparkReporter = new ExtentSparkReporter(PATH_REPORT + File.separator + "Report_" + DateTime.getReportDateTimeFormat() + ".html");
+        extentSparkReporter = new ExtentSparkReporter(PATH_REPORT + File.separator + "Report " + DateTime.getReportDateTimeFormat() + ".html");
         extentSparkReporter.config().setDocumentTitle("Relatório de Execução da Automação");
         extentSparkReporter.config().setReportName("Relatório de Execução de Testes");
         extentSparkReporter.config().setTheme(Theme.DARK);

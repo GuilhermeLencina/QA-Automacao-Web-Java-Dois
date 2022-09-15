@@ -39,13 +39,13 @@ Checklist básico para mostrar a progressão do projeto.
 
 [✔️] Criar Classe para gerar dados com **JavaFakers**
 
-[] Criar Classe e Mapear Elementos nas **PageObjects**
+[✔️] Criar Classe e Mapear Elementos nas **PageObjects**
 
-[] Criar Classe e Desenvolver Métodos nas **Tasks**
+[✔️] Criar Classe e Desenvolver Métodos nas **Tasks**
 
-[] Criar Classe e Desenvolver Validações nas **Validations**
+[✔️] Criar Classe e Desenvolver Validações nas **Validations**
 
-[] Criar Classes de **TestsCases**
+[✔️] Criar Classes de **TestsCases**
 
 [] Criar **Suites** de Testes
 
