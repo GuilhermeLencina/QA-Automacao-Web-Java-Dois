@@ -47,7 +47,7 @@ Checklist básico para mostrar a progressão do projeto.
 
 [✔️] Criar Classes de **TestsCases**
 
-[] Criar **Suites** de Testes
+[✔️] Criar **Suites** de Testes
 
 ## Padrão utilizado 📦
 Como já escrito no titulo, neste tópico terá a padrão utilizado para estruturar o projeto junto de uma breve explicação do que tem em cada pacote.
@@ -73,7 +73,7 @@ Este tópico tem como objetivo explicar de forma simples como rodar os testes de
 * Na classe de teste de sua preferência clique com o botão direito
 * Clique na opção "**Run** teste"
 
-Também como opção tem a classe de **Regression** no pacote **src/test/java/TestsSuites/** no qual ira rodar todos os testes desenvolvidos no projeto!
+Também como opção tem a classe de **RegressionTest** no pacote **src/test/java/TestsSuites/** no qual ira rodar todos os testes desenvolvidos no projeto!
 
 ## Geração de Relatório 📋✔️
 
