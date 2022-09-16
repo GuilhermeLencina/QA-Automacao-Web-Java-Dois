@@ -27,7 +27,7 @@ public class ValidateMonthlySummaryBalanceTest extends TestBase {
     @DisplayName("Validar o Saldo do Resumo Mensal!")
     public void validateMonthlySummaryBalance(String email, String password) throws Exception {
         try {
-            Report.createReportTest("Realizar uma movimentação financeira com sucesso", ReportType.GROUP);
+            Report.createReportTest("Validar o Saldo do Resumo Mensal", ReportType.GROUP);
             Report.createStep("Realizar login com sucesso!");
             loginTask.accessAccount(email, password);
             Report.createStep("Selecionar Adicionar Contas");

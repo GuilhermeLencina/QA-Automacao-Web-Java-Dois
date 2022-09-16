@@ -23,11 +23,11 @@ public class CreateFinancialMovementTest extends TestBase {
     @ParameterizedTest
     @Tag("regressao")
     @CsvFileSource(resources = "/Csv/login.csv", numLinesToSkip = 1)
-    @DisplayName("Validar o Criar Movimentacao de contas!")
+    @DisplayName("Criar Movimentacao de contas!")
     public void createFinancialMovement(String email, String password) throws Exception {
         try {
-            Report.createReportTest("Realizar uma movimentação financeira com sucesso", ReportType.GROUP);
-            Report.createStep("Realizar login com sucesso!");
+            Report.createReportTest("Realizar uma Movimentação Financeira com Sucesso", ReportType.GROUP);
+            Report.createStep("Realizar login com sucesso");
             loginTask.accessAccount(email, password);
             Report.createStep("Selecionar Adicionar Contas");
             genericTask.selectAddAccounts();

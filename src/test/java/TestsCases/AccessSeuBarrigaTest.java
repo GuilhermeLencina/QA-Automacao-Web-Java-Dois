@@ -19,10 +19,10 @@ public class AccessSeuBarrigaTest extends TestBase {
     @ParameterizedTest
     @Tag("regressao")
     @CsvFileSource(resources = "/Csv/login.csv", numLinesToSkip = 1)
-    @DisplayName("Validar o acesso ao SeuBarriga com sucesso!")
+    @DisplayName("Realizar acesso com sucesso!")
     public void accessSeuBarriga(String email, String password) throws Exception{
         try {
-            Report.createReportTest("Realizar acesso com sucesso", ReportType.GROUP);
+            Report.createReportTest("Validar o acesso ao SeuBarriga", ReportType.GROUP);
             Report.createStep("Realizar login com sucesso!");
             loginTask.accessAccount(email, password);
         }catch (Exception error){

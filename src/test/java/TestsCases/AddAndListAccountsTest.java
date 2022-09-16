@@ -23,10 +23,10 @@ public class AddAndListAccountsTest extends TestBase {
     @ParameterizedTest
     @Tag("regressao")
     @CsvFileSource(resources = "/Csv/login.csv", numLinesToSkip = 1)
-    @DisplayName("Validar o Adicionar e Listar contas!")
+    @DisplayName("Adicionar e Listar Contas!")
     public void addAndListAccounts(String email, String password) throws Exception{
         try {
-            Report.createReportTest("Adicionar e Lista Conta com sucesso!", ReportType.GROUP);
+            Report.createReportTest("Adicionar e Listar Conta com sucesso!", ReportType.GROUP);
             Report.createStep("Realizar login com sucesso");
             loginTask.accessAccount(email, password);
             Report.createStep("Selecionar Adicionar Contas");
