@@ -19,34 +19,34 @@ public class GenericTask {
     }
 
     public void selectHome(){
-        genericPage.getButtonHome().click();
+        genericPage.getHomeButton().click();
         genericValidation.validateHomePage();
     }
 
-    public void selectAdicionarContas(){
-        genericPage.getButtonContas().click();
-        genericPage.getButtoAdicionarContas().click();
-        genericValidation.validateAdicionarContasPage();
+    public void selectAddAccounts(){
+        genericPage.getAccountsButton().click();
+        genericPage.getAddAccountsButton().click();
+        genericValidation.validateAddAccountsPage();
     }
 
-    public void selectListarContas(){
-        genericPage.getButtonContas().click();
-        genericPage.getButtoListarContas().click();
-        genericValidation.validateListarContasPage();
+    public void selectListAccounts(){
+        genericPage.getAccountsButton().click();
+        genericPage.getListAccountsButton().click();
+        genericValidation.validateListAccountsPage();
     }
 
-    public void selectCriarMovimentacao(){
-        genericPage.getButtonCriarMovimentacao().click();
-        genericValidation.validateCriarMovimentacaoPage();
+    public void selectCreateMovement(){
+        genericPage.getCreateMovementButton().click();
+        genericValidation.validateCreateMovementPage();
     }
 
-    public void selectResumoMensal(){
-        genericPage.getButtonResumoMensal().click();
-        genericValidation.validateResumoMensal();
+    public void selectMonthlySummary(){
+        genericPage.getMonthlySummaryButton().click();
+        genericValidation.validateMonthlySummaryPage();
     }
 
-    public void selectSair(){
-        genericPage.getButtonSair().click();
-        genericValidation.validateLogin();
+    public void selectExit(){
+        genericPage.getExitButton().click();
+        genericValidation.validateLoginPage();
     }
 }

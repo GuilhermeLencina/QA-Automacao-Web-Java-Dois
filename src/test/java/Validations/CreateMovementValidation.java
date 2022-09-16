@@ -3,115 +3,115 @@ package Validations;
 import Framework.Browser.Waits;
 import Framework.Report.Report;
 import Framework.Report.Screenshot;
-import PageObjects.CriarMovimentacaoPage;
+import PageObjects.CreateMovementPage;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-public class CriarMovimentacaoValidation {
+public class CreateMovementValidation {
     private WebDriver driver;
     private Waits waits;
-    private CriarMovimentacaoPage criarMovimentacaoPage;
+    private CreateMovementPage createMovementPage;
 
-    public CriarMovimentacaoValidation(WebDriver driver){
+    public CreateMovementValidation(WebDriver driver){
         this.driver = driver;
         waits = new Waits(this.driver);
-        criarMovimentacaoPage = new CriarMovimentacaoPage(this.driver);
+        createMovementPage = new CreateMovementPage(this.driver);
     }
 
-    public void validateSelectTipoMovimentacao(){
+    public void validateMovementTypeSelect(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getSelectTipoMovimentacao().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getMovementTypeSelect().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo select tipo de movimentação de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateDataMovimentacaoTextField(){
+    public void validateMovementDateTextField(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getDataMovimentacaoTextField().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getMovementDateTextField().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo data de movimentação de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateDataPagamentoTextField(){
+    public void validatePaymentDateTextField(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getDataPagamentoTextField().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getPaymentDateTextField().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo data de pagamento de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateDescricaoTextField(){
+    public void validateDescriptionTextField(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getDescricaoTextField().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getDescriptionTextField().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo descrição de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateInteressadoTextField(){
+    public void validateInterestedTextField(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getInteressadoTextField().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getInterestedTextField().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo interessado de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateValorTextField(){
+    public void validateValueTextField(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getValorTextField().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getValueTextField().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo valor de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateSelectTipoDaConta(){
+    public void validateAccountTypeSelect(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getSelectTipoConta().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getAccountTypeSelect().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo select tipo de conta de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateSituacaoPagoRadio(){
+    public void validatePaidSituationRadio(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getSituacaoPagoRadio().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getPaidSituationRadio().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo radio situação pago de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateSituacaoPendenteRadio(){
+    public void validatePendingSituationRadio(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getSituacaoPendenteRadio().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getPendingSituationRadio().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo radio situação pendente de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateButtonSalvar(){
+    public void validateSaveButton(){
         try{
-            Assertions.assertTrue(criarMovimentacaoPage.getButtonSalvar().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getSaveButton().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar botão salvar de criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateLabelSuccess(){
+    public void validateSuccessLabel(){
         try {
-            Assertions.assertEquals(criarMovimentacaoPage.getLabelSuccess().getText(), "Movimentação adicionada com sucesso!");
+            Assertions.assertEquals(createMovementPage.getSuccessLabel().getText(), "Movimentação adicionada com sucesso!");
             Report.logWithCapture(Status.PASS, "Validar criar movimentação com sucesso!", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));

@@ -1,30 +1,29 @@
 package Validations;
 
-import Framework.Browser.JavaScriptExecutor;
 import Framework.Browser.Waits;
 import Framework.Report.Report;
 import Framework.Report.Screenshot;
-import PageObjects.ContasPage;
+import PageObjects.AccountsPage;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-public class ContasValidation {
+public class AccountsValidation {
     private WebDriver driver;
     private Waits waits;
-    private ContasPage contasPage;
+    private AccountsPage accountsPage;
 
-    public ContasValidation(WebDriver driver) {
+    public AccountsValidation(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(this.driver);
-        contasPage = new ContasPage(this.driver);
+        accountsPage = new AccountsPage(this.driver);
     }
 
     // MÉTODOS ADICIONAR CONTAS
 
     public void validateFilledField() {
         try {
-            Assertions.assertTrue(contasPage.getNomeTextField().isDisplayed());
+            Assertions.assertTrue(accountsPage.getNameTextField().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar campo preenchido com sucesso!", Screenshot.screenshot(driver));
         } catch (Exception error) {
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
@@ -33,27 +32,27 @@ public class ContasValidation {
 
     // MÉTODOS LISTAR CONTAS
 
-    public void validateLabelCreateSuccess() {
+    public void validateCreateSuccessLabel() {
         try {
-            Assertions.assertEquals(contasPage.getLabelSuccess().getText(), "Conta adicionada com sucesso!");
+            Assertions.assertEquals(accountsPage.getSuccessLabel().getText(), "Conta adicionada com sucesso!");
             Report.logWithCapture(Status.PASS, "Validar criar conta com sucesso!", Screenshot.screenshot(driver));
         } catch (Exception error) {
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateLabelEditSuccess() {
+    public void validateEditSuccessLabel() {
         try {
-            Assertions.assertEquals(contasPage.getLabelSuccess().getText(), "Conta alterada com sucesso!");
+            Assertions.assertEquals(accountsPage.getSuccessLabel().getText(), "Conta alterada com sucesso!");
             Report.logWithCapture(Status.PASS, "Validar editar conta com sucesso!", Screenshot.screenshot(driver));
         } catch (Exception error) {
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateLabelRemoveSuccess() {
+    public void validateRemoveSuccessLabel() {
         try {
-            Assertions.assertEquals(contasPage.getLabelSuccess().getText(), "Conta removida com sucesso!");
+            Assertions.assertEquals(accountsPage.getSuccessLabel().getText(), "Conta removida com sucesso!");
             Report.logWithCapture(Status.PASS, "Validar remover conta com sucesso!", Screenshot.screenshot(driver));
         } catch (Exception error) {
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
@@ -61,9 +60,9 @@ public class ContasValidation {
         }
     }
 
-    public void validateTableContas() {
+    public void validateAccountsTable() {
         try {
-            Assertions.assertTrue(contasPage.getTable().isDisplayed());
+            Assertions.assertTrue(accountsPage.getAccountsTable().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar tabela de contas.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));

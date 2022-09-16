@@ -12,10 +12,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
 
-public class CreateFinancialMovementTest extends TestBase {
+public class ValidateMonthlySummaryBalanceTest extends TestBase {
     private WebDriver driver = this.getDriver();
     LoginTask loginTask = new LoginTask(this.driver);
     GenericTask genericTask = new GenericTask(this.driver);
+    HomeTask homeTask = new HomeTask(this.driver);
     AccountsTask accountsTask = new AccountsTask(this.driver);
     CreateMovementTask createMovementTask = new CreateMovementTask(this.driver);
     MonthlySummaryTask monthlySummaryTask = new MonthlySummaryTask(this.driver);
@@ -23,8 +24,8 @@ public class CreateFinancialMovementTest extends TestBase {
     @ParameterizedTest
     @Tag("regressao")
     @CsvFileSource(resources = "/Csv/login.csv", numLinesToSkip = 1)
-    @DisplayName("Validar o Criar Movimentacao de contas!")
-    public void createFinancialMovement(String email, String password) throws Exception {
+    @DisplayName("Validar o Saldo do Resumo Mensal!")
+    public void validateMonthlySummaryBalance(String email, String password) throws Exception {
         try {
             Report.createReportTest("Realizar uma movimentação financeira com sucesso", ReportType.GROUP);
             Report.createStep("Realizar login com sucesso!");
@@ -35,14 +36,19 @@ public class CreateFinancialMovementTest extends TestBase {
             accountsTask.generateAccount();
             Report.createStep("Selecionar Criar Movimentação");
             genericTask.selectCreateMovement();
-            Report.createStep("Validar campos preenchidos");
+            Report.createStep("Criar Movimentação de Receita Paga");
             createMovementTask.fillRevenueFields();
             createMovementTask.saveMovement();
-            Report.createStep("Selecionar Resumo mensal");
+            Report.createStep("Criar Movimentação de Despesa Paga");
+            createMovementTask.fillExpenseFields();
+            createMovementTask.saveMovement();
+            Report.createStep("Selecionar Home");
+            genericTask.selectHome();
+            Report.createStep("Validar Saldo da Conta");
+            homeTask.confirmBalance();
+            Report.createStep("Selecionar Resumo Mensal");
             genericTask.selectMonthlySummary();
-            Report.createStep("Validar campos Descrição e Conta em Resumo Mensal");
-            monthlySummaryTask.confirmFields();
-            Report.createStep("Deletar Movimentação em Resumo Mensal");
+            Report.createStep("Deletar Movimentações em Resumo Mensal");
             monthlySummaryTask.removeMovement();
             Report.createStep("Selecionar Listar Contas");
             genericTask.selectListAccounts();

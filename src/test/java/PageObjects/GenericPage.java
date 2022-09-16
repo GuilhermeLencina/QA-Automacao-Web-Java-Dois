@@ -6,9 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GenericPage {
     private WebDriver driver;
     private Waits waits;
@@ -19,31 +16,31 @@ public class GenericPage {
         waits = new Waits(this.driver);
     }
 
-    public WebElement getButtonHome(){
+    public WebElement getHomeButton(){
         return waits.visibilityOfElement(By.xpath("//a[contains(text(),'Home')]"));
     }
 
-    public WebElement getButtonContas(){
+    public WebElement getAccountsButton(){
         return waits.visibilityOfElement(By.xpath("//a[contains(text(),'Contas')]"));
     }
 
-    public WebElement getButtoAdicionarContas(){
+    public WebElement getAddAccountsButton(){
         return waits.visibilityOfElement(By.cssSelector(".dropdown-menu li:nth-child(1) a"));
     }
 
-    public WebElement getButtoListarContas(){
+    public WebElement getListAccountsButton(){
         return waits.visibilityOfElement(By.cssSelector(".dropdown-menu li:nth-child(2) a"));
     }
 
-    public WebElement getButtonCriarMovimentacao(){
+    public WebElement getCreateMovementButton(){
         return waits.visibilityOfElement(By.xpath("//a[contains(text(),'Criar Movimentação')]"));
     }
 
-    public WebElement getButtonResumoMensal(){
+    public WebElement getMonthlySummaryButton(){
         return waits.visibilityOfElement(By.xpath("//a[contains(text(),'Resumo Mensal')]"));
     }
 
-    public WebElement getButtonSair(){
+    public WebElement getExitButton(){
         WebElement labelHighlight = waits.visibilityOfElement(By.xpath("//a[contains(text(),'Sair')]"));
         javaScriptExecutor.highlight(driver,labelHighlight);
         return  labelHighlight;

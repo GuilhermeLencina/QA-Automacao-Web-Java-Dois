@@ -1,7 +1,6 @@
 package Tasks;
 
 import Framework.Browser.Waits;
-import Framework.Utils.FakersGeneration;
 import PageObjects.LoginPage;
 import Validations.LoginValidation;
 import org.openqa.selenium.WebDriver;
@@ -19,11 +18,11 @@ public class LoginTask {
         loginValidation = new LoginValidation(this.driver);
     }
 
-    public void login(String email, String password){
+    public void accessAccount(String email, String password){
         loginValidation.validateLogin();
         loginPage.getEmailTextField().sendKeys(email);
         loginPage.getPasswordTextField().sendKeys(password);
-        loginValidation.validateFillField();
+        loginValidation.validateFilledFields();
         loginPage.getLoginButton().click();
         loginValidation.validateAccess();
     }

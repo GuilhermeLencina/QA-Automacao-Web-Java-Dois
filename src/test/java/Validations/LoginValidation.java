@@ -32,7 +32,7 @@ public class LoginValidation {
         }
     }
 
-    public void validateFillField() {
+    public void validateFilledFields() {
         try {
             Assertions.assertTrue(loginPage.getEmailTextField().isDisplayed());
             Assertions.assertTrue(loginPage.getPasswordTextField().isDisplayed());
@@ -44,7 +44,7 @@ public class LoginValidation {
 
     public void validateAccess() {
         try{
-            Assertions.assertEquals(homePage.getLabelSuccess().getText(), "Bem vindo, Guilherme Testador!");
+            Assertions.assertEquals(homePage.getSuccessLabel().getText(), "Bem vindo, Guilherme Testador!");
             Report.logWithCapture(Status.PASS, "Validar acesso com sucesso!", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));

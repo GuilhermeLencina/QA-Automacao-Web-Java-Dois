@@ -4,39 +4,37 @@ import Framework.Browser.Waits;
 import Framework.Report.Report;
 import Framework.Report.Screenshot;
 import Framework.Utils.FileOperation;
-import PageObjects.ResumoMensalPage;
-import Tasks.CriarMovimentacaoTask;
+import PageObjects.MonthlySummaryPage;
+import Tasks.CreateMovementTask;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-import java.text.DecimalFormat;
-
-public class ResumoMensalValidation {
+public class MonthlySummaryValidation {
     private WebDriver driver;
     private Waits waits;
-    private ResumoMensalPage resumoMensalPage;
-    private CriarMovimentacaoTask criarMovimentacaoTask;
+    private MonthlySummaryPage monthlySummaryPage;
+    private CreateMovementTask createMovementTask;
 
-    public ResumoMensalValidation(WebDriver driver) {
+    public MonthlySummaryValidation(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(this.driver);
-        resumoMensalPage = new ResumoMensalPage(this.driver);
-        criarMovimentacaoTask = new CriarMovimentacaoTask(this.driver);
+        monthlySummaryPage = new MonthlySummaryPage(this.driver);
+        createMovementTask = new CreateMovementTask(this.driver);
     }
 
-    public void validateTableResumoMensal() {
+    public void validateMonthlySummaryTable() {
         try {
-            Assertions.assertTrue(resumoMensalPage.getTable().isDisplayed());
+            Assertions.assertTrue(monthlySummaryPage.getMonthlySummaryTable().isDisplayed());
             Report.logWithCapture(Status.PASS, "Validar tabela de resumo mensal.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateLabelRemoveSuccess() {
+    public void validateRemoveSuccessLabel() {
         try {
-            Assertions.assertEquals(resumoMensalPage.getLabelSuccess().getText(), "Movimentação removida com sucesso!");
+            Assertions.assertEquals(monthlySummaryPage.getSuccessLabel().getText(), "Movimentação removida com sucesso!");
             Report.logWithCapture(Status.PASS, "Validar remover movimentação com sucesso!", Screenshot.screenshot(driver));
         } catch (Exception error) {
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
@@ -48,13 +46,13 @@ public class ResumoMensalValidation {
         try {
             Assertions.assertAll(
                     () -> Assertions.assertEquals(FileOperation.getProperties("information").getProperty("conta"),
-                            resumoMensalPage.getLabelConta().getText()),
+                            monthlySummaryPage.getAccountLabel().getText()),
 
                     () -> Assertions.assertEquals(FileOperation.getProperties("information").getProperty("descricao"),
-                            resumoMensalPage.getLabelDescricao().getText()),
+                            monthlySummaryPage.getDescriptionLabel().getText()),
 
-                    () -> Assertions.assertEquals(FileOperation.getProperties("information").getProperty("valor"),
-                            resumoMensalPage.getLabelValor().getText()));
+                    () -> Assertions.assertEquals(FileOperation.getProperties("information").getProperty("valorReceita"),
+                            monthlySummaryPage.getBalanceLabel().getText()));
 
             Report.logWithCapture(Status.PASS, "Validar campos Conta e Descrição.", Screenshot.screenshot(driver));
         }catch (Exception error){

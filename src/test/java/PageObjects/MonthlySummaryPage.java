@@ -6,27 +6,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.swing.*;
 import java.util.List;
 
-public class ResumoMensalPage {
+public class MonthlySummaryPage {
     private WebDriver driver;
     private Waits waits;
     private JavaScriptExecutor javaScriptExecutor = new JavaScriptExecutor();
 
-    public ResumoMensalPage(WebDriver driver){
+    public MonthlySummaryPage(WebDriver driver){
         this.driver = driver;
         waits = new Waits(this.driver);
     }
 
-    public WebElement getSelectMes() {
+    public WebElement getMonthSelect() {
         WebElement labelHighlight = waits.visibilityOfElement(By.id("mes"));
         javaScriptExecutor.highlight(driver,labelHighlight);
         return  labelHighlight;
     }
 
-    public void selectMes(String tipo) {
-        getSelectMes().click();
+    public void selectMonth(String tipo) {
+        getMonthSelect().click();
         List<WebElement> list = driver.findElements(By.cssSelector("#mes option"));
         for (WebElement element : list) {
             if (element.getText().equals(tipo)) {
@@ -35,14 +34,14 @@ public class ResumoMensalPage {
         }
     }
 
-    public WebElement getSelectAno() {
+    public WebElement getYearSelect() {
         WebElement labelHighlight = waits.visibilityOfElement(By.id("ano"));
         javaScriptExecutor.highlight(driver,labelHighlight);
         return  labelHighlight;
     }
 
-    public void selectAno(String tipo) {
-        getSelectAno().click();
+    public void selectYear(String tipo) {
+        getYearSelect().click();
         List<WebElement> list = driver.findElements(By.cssSelector("#ano option"));
         for (WebElement element : list) {
             if (element.getText().equals(tipo)) {
@@ -51,27 +50,34 @@ public class ResumoMensalPage {
         }
     }
 
-    public WebElement getTable(){
+    public WebElement getMonthlySummaryTable(){
         return waits.visibilityOfElement(By.id("tabelaExtrato"));
     }
 
-    public WebElement getButtonRemove(){
-        return waits.visibilityOfElement(By.cssSelector(".glyphicon.glyphicon-remove-circle"));
+    public WebElement getRemoveButton(){
+        return waits.visibilityOfElement(By.cssSelector(".glyphicon-remove-circle"));
     }
 
-    public WebElement getLabelSuccess(){
+    public void RemoveAllMoves(){
+        List<WebElement> list = driver.findElements(By.cssSelector("#tabelaExtrato tbody tr"));
+        for (WebElement element : list) {
+            getRemoveButton().click();
+        }
+    }
+
+    public WebElement getSuccessLabel(){
         return waits.visibilityOfElement(By.cssSelector(".alert.alert-success"));
     }
 
-    public WebElement getLabelDescricao() {
+    public WebElement getDescriptionLabel() {
         return waits.visibilityOfElement(By.cssSelector("#tabelaExtrato td:nth-child(1)"));
     }
 
-    public WebElement getLabelConta() {
+    public WebElement getAccountLabel() {
         return waits.visibilityOfElement(By.cssSelector("#tabelaExtrato td:nth-child(3)"));
     }
 
-    public WebElement getLabelValor() {
+    public WebElement getBalanceLabel() {
         return waits.visibilityOfElement(By.cssSelector("#tabelaExtrato td:nth-child(4)"));
     }
 }

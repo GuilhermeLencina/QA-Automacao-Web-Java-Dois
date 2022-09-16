@@ -15,9 +15,9 @@ public class GenericValidation {
 
     private LoginPage loginPage;
     private HomePage homePage;
-    private ContasPage contasPage;
-    private CriarMovimentacaoPage criarMovimentacaoPage;
-    private ResumoMensalPage resumoMensalPage;
+    private AccountsPage accountsPage;
+    private CreateMovementPage createMovementPage;
+    private MonthlySummaryPage monthlySummaryPage;
 
     public GenericValidation(WebDriver driver){
         this.driver = driver;
@@ -25,12 +25,12 @@ public class GenericValidation {
         loginPage = new LoginPage(this.driver);
         genericPage = new GenericPage(this.driver);
         homePage = new HomePage(this.driver);
-        contasPage = new ContasPage(this.driver);
-        criarMovimentacaoPage = new CriarMovimentacaoPage(this.driver);
-        resumoMensalPage = new ResumoMensalPage(this.driver);
+        accountsPage = new AccountsPage(this.driver);
+        createMovementPage = new CreateMovementPage(this.driver);
+        monthlySummaryPage = new MonthlySummaryPage(this.driver);
     }
 
-    public void validateLogin() {
+    public void validateLoginPage() {
         try{
             waits.loadElement(loginPage.getLoginButton());
             Assertions.assertTrue(loginPage.getLoginButton().isDisplayed());
@@ -42,25 +42,25 @@ public class GenericValidation {
 
     public void validateHomePage(){
         try{
-            Assertions.assertTrue(homePage.getTabela().isDisplayed());
+            Assertions.assertTrue(homePage.getBalanceTable().isDisplayed());
             Report.logWithCapture(Status.PASS, "Está na página home.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateAdicionarContasPage(){
+    public void validateAddAccountsPage(){
         try {
-            Assertions.assertTrue(contasPage.getButtonSalvar().isDisplayed());
+            Assertions.assertTrue(accountsPage.getSaveButton().isDisplayed());
             Report.logWithCapture(Status.PASS, "Está na página adicionar contas.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateListarContasPage(){
+    public void validateListAccountsPage(){
         try {
-            Assertions.assertTrue(contasPage.getTable().isDisplayed());
+            Assertions.assertTrue(accountsPage.getAccountsTable().isDisplayed());
             Report.logWithCapture(Status.PASS, "Está na página lista contas.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
@@ -68,18 +68,18 @@ public class GenericValidation {
     }
 
 
-    public void validateCriarMovimentacaoPage(){
+    public void validateCreateMovementPage(){
         try {
-            Assertions.assertTrue(criarMovimentacaoPage.getButtonSalvar().isDisplayed());
+            Assertions.assertTrue(createMovementPage.getSaveButton().isDisplayed());
             Report.logWithCapture(Status.PASS, "Está na página criar movimentação.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
         }
     }
 
-    public void validateResumoMensal(){
+    public void validateMonthlySummaryPage(){
         try {
-            Assertions.assertTrue(resumoMensalPage.getTable().isDisplayed());
+            Assertions.assertTrue(monthlySummaryPage.getMonthlySummaryTable().isDisplayed());
             Report.logWithCapture(Status.PASS, "Está na página resumo mensal.", Screenshot.screenshot(driver));
         }catch (Exception error){
             Report.logWithCapture(Status.FAIL, error.getMessage(), Screenshot.screenshot(driver));
